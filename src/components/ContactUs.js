@@ -41,4 +41,29 @@ export default function ContactUs(props) {
     }
     
 
-    
+    function todo()
+    {
+        check();
+    }
+  return (
+    <div className='container'>    
+    <br />      
+            <form className="row g-3 ">
+                <h3 className='text-center' style={{color:`${props.mode==="light"?"black":"white"}`}}>Contact Us</h3>
+            <div className="col-12">
+                <label htmlFor="inputAddress" className="form-label">Subject</label>
+                <input type="text" className={`form-control ${props.mode==="light"?"light1":"dark1"}`} style={{background:`${props.mode==="light"?"white":"rgb(24,24,24)"}`,color:`${props.mode==="light"?"black":"white"}`}} id="inputAddress" placeholder="Enter the Subject" onChange={(event)=>setSubject(event.target.value)}/>
+            </div>
+            <div className="col-12 " >
+                <label htmlFor="inputAddress2" className="form-label">Description</label>
+                <textarea className={`form-control ${props.mode==="light"?"light1":"dark1"}`} style={{background:`${props.mode==="light"?"white":"rgb(24,24,24)"}`,color:`${props.mode==="light"?"black":"white"}`}} id="textAreaExample1" placeholder="Enter the Description" rows="7" onChange={(event)=>setMessage(event.target.value)}></textarea>
+            </div>
+            <div className="text text-center text-danger fw-bold" id="new"></div>
+            <div className="col-12 d-flex justify-content-center">
+            <div className='btn btn-primary' onClick={todo}>Submit</div>
+            </div>
+            </form>
+            </div>
+
+  )
+}
