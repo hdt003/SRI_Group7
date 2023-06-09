@@ -34,3 +34,54 @@ async function fetchData() {
         
         fetchData();
       },[]);
+     
+      function updateFname()
+      {
+        const docRef = doc(db, "users", props.uid);
+        const data = {
+          // fname: fname,
+          fname:first,
+          // lname:last
+        };
+        updateDoc(docRef, data)
+        .then(docRef => {
+            console.log("A New First name Field has been added ");
+        })
+        .catch(error => {
+            console.log(error);
+        })
+      }
+      function updateLname()
+      {
+        const docRef = doc(db, "users", props.uid);
+        const data = {
+          // fname: fname,
+          lname:last
+        };
+        updateDoc(docRef, data)
+        .then(docRef => {
+            console.log("A New First name Field has been added ");
+        })
+        .catch(error => {
+            console.log(error);
+        })
+      }
+      function checknum()
+    { 
+      if (isNaN(calory)) 
+      {
+        return false;
+      }
+    }
+    function setupdatefirst(temp)
+    {
+      setFName(temp);
+      first=temp;               
+      updateFname()
+    }
+    function setupdatelast(temp)
+    {
+      setLName(temp);
+      last=temp;               
+      updateLname()
+    }     
