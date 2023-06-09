@@ -2,6 +2,8 @@ import NavBar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import Profile from './components/Profile';
+import ContactUs from './components/ContactUs';
 import { auth } from './firebase';
 import { useEffect,useState } from 'react';
 function App() {
@@ -73,10 +75,12 @@ function App() {
     {/* <br/> */}
         <Routes>
             {/* <Route exact path="/" element={<Area uid={Userid } value={timeBasedFood(new Date)} field="type" pagename="home" mode={mode}/> }/> */}
-       
+
+            <Route exact path="/contact" element={<ContactUs uid={Userid } mode={mode}/>}/>
+
             <Route exact path="/login" element={<Login mode={mode}/>}/>
             <Route exact path="/SignUp" element={<SignUp mode={mode}/>}/>
-            {/* <Route exact path="/Profile" element={<Profile uid={Userid } mode={mode}/>}/> */}
+            <Route exact path="/Profile" element={<Profile uid={Userid } mode={mode}/>}/>
         </Routes>
       </Router>
       </div>
