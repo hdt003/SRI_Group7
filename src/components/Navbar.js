@@ -30,7 +30,7 @@ export default function NavBar(props) {
         <div className="nav-links" style={{background:"white",color:"black", "textDecoration": "none"}}>
           
           <h3><img src="https://www.linkpicture.com/q/7896.png" alt="..." height="38px" width="35px"/></h3>
-          <h3 style={{color:"black", "textDecoration": "none"}}>Menu App</h3>
+          <h3 style={{color:"black", "textDecoration": "none"}}>TastyGo</h3>
           <div className="nav-link-wrapper hover-underline-animation"><Link style={{color:"black", "textDecoration": "none"}} to="/">Home</Link></div>
           
         <div className="nav-link-wrapper hover-underline-animation"><Link style={{color:"black", "textDecoration": "none"}} to="/contact">Contact Us</Link></div>
