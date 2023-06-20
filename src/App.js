@@ -1,11 +1,14 @@
+import NavBar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login'
-// import SignUp from './components/SignUp'
+import SignUp from './components/SignUp'
+import Profile from './components/Profile';
+import ContactUs from './components/ContactUs';
 import { auth } from './firebase';
 import { useEffect,useState } from 'react';
 function App() {
   const [Userid,setUserid]=useState("")
-  const [mode,setMode]=useState("light");
+  const [mode,setMode]=useState("dark");
   const [aalert,setAlert]=useState("Light Mode Enabled")
 
   useEffect(()=>{ 
@@ -67,14 +70,17 @@ function App() {
     <div>
     <Router>
       <hr style={{width:"10px"}}/>
+      <NavBar mode={mode} togglemode={togglemode} alert={alertfunc}/>
     <div className='mt-5 container ' id="liveAlertPlaceholder"></div>
     {/* <br/> */}
         <Routes>
             {/* <Route exact path="/" element={<Area uid={Userid } value={timeBasedFood(new Date)} field="type" pagename="home" mode={mode}/> }/> */}
-       
+
+            <Route exact path="/contact" element={<ContactUs uid={Userid } mode={mode}/>}/>
+
             <Route exact path="/login" element={<Login mode={mode}/>}/>
-            {/* <Route exact path="/SignUp" element={<SignUp mode={mode}/>}/> */}
-            {/* <Route exact path="/Profile" element={<Profile uid={Userid } mode={mode}/>}/> */}
+            <Route exact path="/SignUp" element={<SignUp mode={mode}/>}/>
+            <Route exact path="/Profile" element={<Profile uid={Userid } mode={mode}/>}/>
         </Routes>
       </Router>
       </div>
