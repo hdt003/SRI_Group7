@@ -121,3 +121,63 @@ export default function ItemPage(props) {
       }
       return result;
   }
+  async function insertInCart()
+  {
+    if(props.uid!=="")
+    {
+    await setDoc(doc(db, "cart",p.uid,"orders",str), p);
+    // console.log(p);
+    console.log("data inserted in db");
+    document.getElementById('liveAlertPlaceholder').innerHTML = `<br/><div class="alert alert-success alert-dismissible text-dark text-center border-2 border-dark" role="alert">Added In My Cart Succesfully<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
+    setTimeout(() => {
+      document.getElementById('liveAlertPlaceholder').innerHTML = "";
+    }, 5000);
+    }
+    else{
+      navigate("/login");
+      document.getElementById('liveAlertPlaceholder').innerHTML = `<br/><div class="alert alert-success alert-dismissible text-dark text-center border-2 border-dark" role="alert">Login To Add Items Into Cart<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
+      setTimeout(() => {
+        document.getElementById('liveAlertPlaceholder').innerHTML = "";
+      }, 5000);
+    }
+  }
+  
+// }
+return (
+  <div>
+    <br/>
+    <br/>
+            
+      <div className="row">
+        <div className="col-6 column6">
+          <div> 
+          <img className="position-fixed p-3"src={props.food_type==="Veg"?vegg:nonvegg}  alt="..." width="6%" height="14%"  />
+          <img src={props.img} className="rounded shadoww" alt="..." width="100%" height="100%"/>
+          <div className="topright"></div>
+          </div>
+        </div>
+        <div className="col-6 column6 px-5" id="name"><b><p className='text-center fs-5'><hr />{props.name}<hr /></p>
+        <div className='px-2' >
+        <p >Restaurant : {props.description}</p>
+        <p>Restaurant address : {props.address}</p>
+        <p >Food Type : {props.food_type}</p>
+        <p >Calories : {props.calories}</p>
+        <p className="rating">
+            <h5 className="heading"><b>Rating:</b> {databaseRating()}</h5>   
+            
+        </p>    
+        <p className="rating2">
+            <p className="heading fs-5"><b>Rate Now:</b> {UserRating()}</p>   
+        </p>    
+        <p className={`fs-5 text text-`} style={{color: `${props.mode==="dark"?"white":"black"}`}} >Price : &#8377; {props.price}</p>
+        <div className="text-center">
+          <button className="btn btn-danger fw-bold btn-md" onClick={insertInCart}>Add To Cart</button>
+        </div>
+        </div>
+        
+        </b>
+        </div>
+      </div>
+  </div>
+)
+}
