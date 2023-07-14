@@ -63,3 +63,38 @@ export default function NavBar(props) {
               </ul>
             </li>
             <li>
+              <Link style={{background:`${props.mode==="light"?"white":""}`,color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}} className="dropdown-item hover-underline-animation fw-bold" to="/#">
+              Popularity &raquo;
+              </Link>
+              <ul className="dropdown-menu dropdown-submenu fw-bold" style={{background:`${props.mode==="light"?"white":""}`,color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}}>
+                <li>
+                  <Link style={{background:`${props.mode==="light"?"white":""}`,color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}} className="dropdown-item hover-underline-animation fw-bold" to="/htol">Higest to Lowest</Link>
+                </li>
+                <li>
+                  <Link style={{background:`${props.mode==="light"?"white":""}`,color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}} className="dropdown-item hover-underline-animation fw-bold" to="/ltoh">Lowest to Highest</Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link style={{background:`${props.mode==="light"?"white":""}`,color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}} className="dropdown-item hover-underline-animation fw-bold" to="/#">Price &raquo;</Link>
+              <ul className="dropdown-menu dropdown-submenu fw-bold" style={{background:`${props.mode==="light"?"white":""}`,color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}}>
+                <li>
+                  <Link style={{background:`${props.mode==="light"?"white":""}`,color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}} className="dropdown-item hover-underline-animation fw-bold" to="/price_htol">Higest to Lowest</Link>
+                </li>
+                <li>
+                  <Link style={{background:`${props.mode==="light"?"white":""}`,color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}} className="dropdown-item hover-underline-animation fw-bold" to="/price_ltoh">Lowest to Highest</Link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div className="nav-link-wrapper hover-underline-animation"><Link style={{color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}} to="/contact">Contact Us</Link></div>
+
+        <div className="nav-link-wrapper hover-underline-animation"><Link style={{color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}} to="/cart">My Cart</Link></div>
+
+        
+        <div className="nav-link-wrapper hover-underline-animation px-3 pt-3">
+          <div className="d-flex justify-content-around">
+        <p  style={{color: `${props.mode==="light"?"black":"white"}`}}>Switch Mode </p>
+        <p className="px-1"> </p>
+        <label className="switch">
