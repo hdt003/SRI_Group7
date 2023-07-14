@@ -71,3 +71,69 @@ export default function Cart(props) {
           console.log(overload)
           }
       },[])
+
+    async function removeFromCart(oid)
+      {
+        // console.log(oid)
+        try{
+          await deleteDoc(doc(db,"cart",props.uid,"orders",oid))
+          setct(0);
+          fetchcartData();
+          console.log("deleted successfully")
+        }
+        catch(error)
+        {
+          console.log(error)
+        }
+      }
+  return (
+    <div className='container  text-center'>
+
+      <br/>
+      <br/>
+      {auth.currentUser && userId?<div><div className='row'>
+        {/* <div className=''> */}
+          {array.length?<div className='col-6 '>
+                <div className="text-center position-fixed  col-6 mx-2">
+                <div className='text-center fs-2 fw-bold '>My Cart</div><br />
+                  <div className='fs-4 fw-bold '>Total Items: {array.length}</div><br />
+                  <div className='fs-4 fw-bold '>Total Calories: {totcalory}</div><br/>
+                  {dailycalory!==Number.MAX_VALUE?<div className='fs-4 fw-bold '>Daily calories limit: {dailycalory}</div>:""}
+                  {overload ?<><div className='fs-4 fw-bold text-danger'>Your daily calories limit exceeded.</div></>:""}
+                  <br /><button className="btn btn-danger fw-bold btn-lg text-center ">Pay Now: &#8377; {sum}</button>
+                </div> 
+                <br />
+              </div>:<h3 className="text-center col-12"style={{color: `${props.mode==="light"?"black":"white"}`}}>Your Cart is Empty</h3>}
+              
+                
+                <div className='col-6'>{array.map((element,index)=>{
+                return <div className="col-12 itemmm text-center" key={index}  >
+                    
+                    <div className="card mb-3" style={{maxWidth: "503px",minWidth:"503px"}}>
+                    <div className="row g-0">
+                      <div className="col-6 " style={{minHeight:"200px",maxHeight:"200px",minWidth:"250px",maxWidth:"250px"}}>
+                        <img src={element.img} className="img-fluid rounded-start" alt="..." style={{minHeight:"208px",maxHeight:"200px",minWidth:"250px",maxWidth:"250px"}}/>
+                      </div>
+                      <div className="col-6" style={{background:`${props.mode==="light"?"white":"black"}`}} >
+                        <div className={`card-body text text-${props.mode==="light"?"dark":"white"}`} style={{background:`${props.mode==="light"?"white":"black"}`}}>
+                          <h5 className="card-title fw-bold">{element.name}</h5>
+                          <p className="card-text">Restaurant: {element.description}</p>
+                          <p className="card-text">Calories: {element.calories}</p>
+                          <div className='row'>
+                          <p className="card-text fs-4  fw-bold col-6">&#8377; {element.price}</p>
+                          {/* <button className='btn btn-sm btn-danger fw-bold col-2' onClick={insert}><h5>In</h5></button> */}
+                          <img className='btn btn-sm fw-bold col-6' src={deletee} style={{width:"70px",height:"50px"}} onClick={()=>{removeFromCart(element.oid)}}/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              })
+            }  </div>
+            
+            </div></div>:<h2>Please, Sign Up or Login to add Item in Cart</h2>
+}
+    </div> 
+  )
+}
