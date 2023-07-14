@@ -24,34 +24,8 @@ export default function NavBar(props) {
   // },[])
   return (
     <>
-      <nav className="fw-bold fixed-top"style={{background: "white",color:"black !important"}} >
+      <nav className="fw-bold fixed-top"style={{background: `${props.mode==="light"?"white":"black"}`,color:"black !important"}} >
       <div className="left-side" >
         <input type="checkbox"/>
-        <div className="nav-links" style={{background:"white",color:"black", "textDecoration": "none"}}>
+        <div className="nav-links" style={{background:`${props.mode==="light"?"white":""}`,color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}}>
           
-          <h3><img src="https://www.linkpicture.com/q/7896.png" alt="..." height="38px" width="35px"/></h3>
-          <h3 style={{color:"black", "textDecoration": "none"}}>TastyGo</h3>
-          <div className="nav-link-wrapper hover-underline-animation"><Link style={{color:"black", "textDecoration": "none"}} to="/">Home</Link></div>
-          
-        <div className="nav-link-wrapper hover-underline-animation"><Link style={{color:"black", "textDecoration": "none"}} to="/contact">Contact Us</Link></div>
-  
-        </div>
-      </div>
-      <div className="right-side">
-      
-      <div className="">
-        {auth.currentUser &&<div className="px-2 mx-2 hover-underline-animation" ><Link to="/Profile"  style={{color:"black", "textDecoration": "none"}}>Profile </Link></div>}
-        {auth.currentUser && <div className="px-2 mx-2 nav-link-wrapper hover-underline-animation"><Link style={{color:"black", "textDecoration": "none"}}  onClick={logOutAndGoToSignUp}> Logout</Link></div>}
-         {!auth.currentUser &&<div className="px-2 mx-2 hover-underline-animation"><Link to="/login" style={{color:"black", "textDecoration": "none"}}> Login </Link></div>}
-        {!auth.currentUser && <div className="px-2 mx-2 hover-underline-animation"><Link to="/SignUp"  style={{color:"black", "textDecoration": "none"}}> SignUp </Link></div>} 
-      </div>
-        <div className={`menuu ${"light2"}`}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </nav>
-    </>
-  );
-}
