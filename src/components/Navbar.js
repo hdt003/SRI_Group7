@@ -98,3 +98,31 @@ export default function NavBar(props) {
         <p  style={{color: `${props.mode==="light"?"black":"white"}`}}>Switch Mode </p>
         <p className="px-1"> </p>
         <label className="switch">
+        <input  type="checkbox" onClick={() => {props.togglemode();props.alert()}}/>
+        <span className="slider round"></span>
+        </label>
+        </div>
+        </div>
+
+
+         
+        </div>
+      </div>
+      <div className="right-side">
+      
+      <div className="">
+        {auth.currentUser &&<div className="px-2 mx-2 hover-underline-animation" ><Link to="/Profile"  style={{color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}}>Profile </Link></div>}
+        {auth.currentUser && <div className="px-2 mx-2 nav-link-wrapper hover-underline-animation"><Link style={{color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}}  onClick={logOutAndGoToSignUp}> Logout</Link></div>}
+         {!auth.currentUser &&<div className="px-2 mx-2 hover-underline-animation"><Link to="/login" style={{color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}}> Login </Link></div>}
+        {!auth.currentUser && <div className="px-2 mx-2 hover-underline-animation"><Link to="/SignUp"  style={{color: `${props.mode==="light"?"black":"white"}`, "textDecoration": "none"}}> SignUp </Link></div>} 
+      </div>
+        <div className={`menuu ${props.mode==="light"?"light2":"dark2"}`}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+    </>
+  );
+}
