@@ -205,3 +205,58 @@ function titleText(){
     return "in "+props.value
   }
 }
+return (
+  <div >
+    <div className="container my-4" id="area">
+      <br />
+      {/* <br/>
+          <button className="btn btn-primary" onClick={updateData}>update data in db</button>
+          <br/>
+          <br/> */}
+          {!isTrue ?<div>
+          <h1 className="text-center" style={{color: `${props.mode==="light"?"black":"white"}`}}>Top Food Items  {titleText()}</h1>
+          <div className="container">
+          <div className="row">
+                  {
+                    
+                    array.map((element,index)=>{
+                      return  <div className="col-sm-12 col-md-6 col-lg-4 itemmm" key={index} >
+                        <Item 
+                        img={element.img?element.img:"image"} 
+                        description={element.description?element.description:"description"}
+                        food_type={element.food_type?element.food_type:"Lunch"}
+                        price={element.price?element.price:"100"}
+                        popularity= {element.popularity?element.popularity:"0"}
+                        type={element.type?element.type:"not found"}
+                        video={element.video?element.video:"video not found"} 
+                        name={element.name?element.name:"name"}
+                        review={element.review}
+                        calories={element.calories}
+                        totalRating={element.totalRating}
+                        usersRated={element.usersRated}
+                        func={pull_data}
+                        address={element.address}
+                        mode={props.mode}
+                        uid={props.uid}/>
+                    </div>
+                    })
+                  }
+                   
+          </div>
+           {/* <button className="btn btn-primary" onClick={insertData}>insert data in db</button> */}
+          
+          {/* <button className="btn btn-primary" onClick={func}>isTrue</button>
+          <br/> */}
+          
+          {/* <br/>
+          <button className="btn btn-primary" onClick={deleteData}>delete data in db</button>
+          <br/>
+          <br/> */}
+          {/* <br/>
+          <button className="btn btn-primary" onClick={updateData}>update data in db</button>
+          <br/>
+          <br/> */}
+
+          </div>
+          
+          
