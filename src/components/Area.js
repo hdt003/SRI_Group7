@@ -120,3 +120,88 @@ async function fetchData() {
     }   
 
 }
+
+useEffect(()=>{
+  if (!ranonce) {
+    console.log("UseEffect")
+    fetchData();
+    console.log(props.field)
+    console.log(props.value)
+    ranonce = true
+}
+
+},[])
+
+
+// async function insertData(){
+//   let obj=
+//   {
+//     img:"https://b.zmtcdn.com/data/dish_photos/0e2/3eadae994f22d5b4b23e60de85a770e2.jpg",
+//     video:"",
+//     name:"Manchurian",
+//     food_type: "Veg",
+//     type: "Breakfast",
+//     description: "Greenz Restaurant",
+//     price: 130,
+//     popularity: 140,
+//     address:"Sector 10, Gandhinagar",
+//     calories: 200
+//     review:5 //1 to 5
+// }
+//   await setDoc(doc(db, "restaurant","Greenz Restaurant","items","Manchurian"), obj);
+//   console.log(obj);
+//   console.log("data inserted in db");
+
+//   // console.log(array[0].name)
+//   // array.map((element,index)=>{
+//   //   console.log(element.name,"attttt",index)
+//   // })
+// }
+
+// async function deleteData(){
+//   await deleteDoc(doc(db, "menu", "eUsn0OV4H00R3Bl6JErv"));
+//   console.log("data deleted in db");
+// }
+// // update user field data
+// async function updateData(){
+//   const docRef = doc(db, "users","zvCanhflnSXS7eY1arVymnmxeRE2");
+
+//   const data = {
+//     dietplan: 0,
+//     calory: Number.MAX_VALUE,
+//     address:""
+//   };
+//   updateDoc(docRef, data)
+//   .then(docRef => {
+//       console.log("A New Document Field has been added to an existing document");
+//   })
+//   .catch(error => {
+//       console.log(error);
+//   })
+// }
+
+function titleText(){
+  if(props.value==="htol")
+  {
+    return "by Popularity High to Low"
+  }
+  else if(props.value==="ltoh")
+  {
+    return "by Popularity Low to High"
+  }
+  else if(props.value==="price_htol")
+  {
+    return "by Price High to Low"
+  }
+  else if(props.value==="price_ltoh")
+  {
+    return "by Price Low to High"
+  }
+  else if(props.pagename==="home")
+  {
+    return ""
+  }
+  else{
+    return "in "+props.value
+  }
+}
