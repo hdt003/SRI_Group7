@@ -259,4 +259,24 @@ return (
 
           </div>
           
-          
+          </div>:<ItemPage img={obj2.img} 
+                        description={obj2.description}
+                        food_type={obj2.food_type}
+                        price={obj2.price}
+                        popularity= {obj2.popularity}
+                        type={obj2.type}
+                        review={obj2.review}
+                        video={obj2.video} 
+                        name={obj2.name}
+                        address={obj2.address}
+                        calories={obj2.calories}
+                        totalRating={obj2.totalRating}
+                        usersRated={obj2.usersRated}
+                        mode={props.mode}
+                        uid={props.uid}
+                         />}
+      </div>
+  </div>
+)
+}
+
