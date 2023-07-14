@@ -11,7 +11,7 @@ import ContactUs from './components/ContactUs';
 import Cart from './components/Cart';
 function App() {
   const [Userid,setUserid]=useState("")
-  const [mode,setMode]=useState("light");
+  const [mode,setMode]=useState("dark");
   const [aalert,setAlert]=useState("Light Mode Enabled")
 
   useEffect(()=>{ 
@@ -37,7 +37,7 @@ function App() {
             document.body.style.color="black"
             setAlert("dark mode Enabled")
             // console.log("light")
-            document.title="Menu App - Light mode"
+            document.title="Light Mode - Food Delivery App"
         }
          if(mode==="light")
         {
@@ -47,7 +47,7 @@ function App() {
           document.body.style.color="white"
           setAlert("Light mode Enabled")
           // console.log("dark")
-          document.title="Menu App - Dark mode"
+          document.title="Dark Mode -Food Delivery App"
         }
     }
 
